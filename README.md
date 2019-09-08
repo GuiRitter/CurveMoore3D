@@ -19,3 +19,5 @@ I don't know if the end result can be called a Moore curve, but it looks like it
 ![color gradient with all (sampled) colors](image/order_3_color.png)
 
 I'd like to study this further to see if I can make the "rotations" a function of the Gray code.
+
+[A few words about Maven.](https://gist.github.com/GuiRitter/1834bd024756e08ab422026a7cd24605)
