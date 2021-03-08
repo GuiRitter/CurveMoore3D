@@ -1,6 +1,6 @@
 package io.github.guiritter.curve_moore._2d;
 
-import static io.github.guiritter.curve_moore._3d.GrayCode.grayCode3ToInt;
+import static io.github.guiritter.curve_moore._2d.GrayCode.grayCode2ToInt;
 
 /**
  * Point in 3D space and {@link java.lang.Long long} precision.
@@ -79,7 +79,7 @@ public final class Point {
      * @return a new instance transformed according to its section
      */
     public final Point transformCurrent(Boolean[] grayCodeValue) {
-        switch (grayCode3ToInt(grayCodeValue)) {
+        switch (grayCode2ToInt(grayCodeValue)) {
             case 0: return rotate(Y, true);
             case 1: return rotate(X, false);
             case 2: return rotate(X, false);
@@ -98,7 +98,7 @@ public final class Point {
      * @return a new instance transformed according to its section
      */
     public final Point transformNext(Boolean[] grayCodeValue) {
-        switch (grayCode3ToInt(grayCodeValue)) {
+        switch (grayCode2ToInt(grayCodeValue)) {
             case 0: return rotate(Y, false).mirror(X);
             case 1: return rotate(X, true).mirror(Y);
             case 2: return this;

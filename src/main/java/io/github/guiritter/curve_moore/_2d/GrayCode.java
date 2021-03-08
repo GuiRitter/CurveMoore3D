@@ -13,13 +13,12 @@ public class GrayCode {
      * @param value index zero is the least significant bit
      * @return value between 0 and 7 (inclusive)
      */
-    public static final int grayCode3ToInt(Boolean[] value) {
+    public static final int grayCode2ToInt(Boolean[] value) {
         Boolean[] testValue;
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 4; i++) {
             testValue = grayCode.get(i);
             if (Objects.equals(value[0], testValue[0])
-             && Objects.equals(value[1], testValue[1])
-             && Objects.equals(value[2], testValue[2])) {
+             && Objects.equals(value[1], testValue[1])) {
                 return i;
             }
         }
@@ -28,14 +27,10 @@ public class GrayCode {
 
     static {
         grayCode = Arrays.asList(
-         new Boolean[]{false, false, false},
-         new Boolean[]{true, false, false},
-         new Boolean[]{true, true, false},
-         new Boolean[]{false, true, false},
-         new Boolean[]{false, true, true},
-         new Boolean[]{true, true, true},
-         new Boolean[]{true, false, true},
-         new Boolean[]{false, false, true}
+         new Boolean[]{false, false},
+         new Boolean[]{true, false},
+         new Boolean[]{true, true},
+         new Boolean[]{false, true}
         );
     }
 }
