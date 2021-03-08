@@ -1,7 +1,7 @@
-package io.github.guiritter.curve_moore_3d;
+package io.github.guiritter.curve_moore._3d;
 
-import static io.github.guiritter.curve_moore_3d.GrayCode.grayCode;
-import static io.github.guiritter.curve_moore_3d.MaximaOutput.maximaOutput;
+import static io.github.guiritter.curve_moore._3d.GrayCode.grayCode;
+import static io.github.guiritter.curve_moore._3d.MaximaOutput.maximaOutput;
 
 import java.util.Arrays;
 import java.util.List;

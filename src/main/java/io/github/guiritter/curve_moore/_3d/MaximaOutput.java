@@ -1,4 +1,4 @@
-package io.github.guiritter.curve_moore_3d;
+package io.github.guiritter.curve_moore._3d;
 
 import java.util.List;
 

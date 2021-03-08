@@ -1,6 +1,6 @@
-package io.github.guiritter.curve_moore_3d;
+package io.github.guiritter.curve_moore._2d;
 
-import static io.github.guiritter.curve_moore_3d.GrayCode.grayCode3ToInt;
+import static io.github.guiritter.curve_moore._3d.GrayCode.grayCode3ToInt;
 
 /**
  * Point in 3D space and {@link java.lang.Long long} precision.
