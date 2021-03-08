@@ -12,13 +12,9 @@ public class MaximaOutput {
     private static String intToColor(int value) {
         switch (value) {
             case 0: return "\"#ff8000\"";
-            case 1: return "\"#bfff00\"";
-            case 2: return "\"#00ff00\"";
-            case 3: return "\"#00ffbf\"";
-            case 4: return "\"#0080ff\"";
-            case 5: return "\"#4000ff\"";
-            case 6: return "\"#ff00ff\"";
-            case 7: return "\"#ff0040\"";
+            case 1: return "\"#00ff00\"";
+            case 2: return "\"#0080ff\"";
+            case 3: return "\"#ff00ff\"";
             default: return "black";
         }
     }
@@ -29,43 +25,34 @@ public class MaximaOutput {
      * @return {@code draw} compatible plot
      */
     public static final String maximaOutput(List<Point> pointCurrentList) {
-        StringBuilder builder = new StringBuilder("load(draw)$\ndraw3d(\ncolor=black,\nline_type=dots,\npoint_type=0,\npoints_joined=true,\nproportional_axes=xyz,\npoints(");
+        StringBuilder builder = new StringBuilder("load(draw)$\ndraw2d(\ncolor=black,\nline_type=dots,\npoint_type=0,\npoints_joined=true,\nproportional_axes=xyz,\npoints(");
         StringBuilder xBuilder = new StringBuilder("[");
         StringBuilder yBuilder = new StringBuilder("[");
-        StringBuilder zBuilder = new StringBuilder("[");
         pointCurrentList.forEach(point -> {
             xBuilder.append(point.x).append(",");
             yBuilder.append(point.y).append(",");
-            zBuilder.append(point.z).append(",");
         });
         xBuilder.setLength(xBuilder.length() - 1);
         yBuilder.setLength(yBuilder.length() - 1);
-        zBuilder.setLength(zBuilder.length() - 1);
         xBuilder.append("]");
         yBuilder.append("]");
-        zBuilder.append("]");
-        builder.append(xBuilder).append(",").append(yBuilder).append(",").append(zBuilder).append("),\nline_type=solid,\n");
-        int subOrderLenght = pointCurrentList.size() / 8;
-        for (int i = 0; i < 8; i++) {
+        builder.append(xBuilder).append(",").append(yBuilder).append("),\nline_type=solid,\n");
+        int subOrderLenght = pointCurrentList.size() / 4;
+        for (int i = 0; i < 4; i++) {
             builder.append("color=").append(intToColor(i)).append(",\npoints(");
             xBuilder.setLength(0);
             yBuilder.setLength(0);
-            zBuilder.setLength(0);
             xBuilder.append("[");
             yBuilder.append("[");
-            zBuilder.append("[");
             pointCurrentList.subList(subOrderLenght * i, subOrderLenght * (i + 1)).forEach(point -> {
                 xBuilder.append(point.x).append(",");
                 yBuilder.append(point.y).append(",");
-                zBuilder.append(point.z).append(",");
             });
             xBuilder.setLength(xBuilder.length() - 1);
             yBuilder.setLength(yBuilder.length() - 1);
-            zBuilder.setLength(zBuilder.length() - 1);
             xBuilder.append("]");
             yBuilder.append("]");
-            zBuilder.append("]");
-            builder.append(xBuilder).append(",").append(yBuilder).append(",").append(zBuilder).append("),\n");
+            builder.append(xBuilder).append(",").append(yBuilder).append("),\n");
         }
         builder.setLength(builder.length() - 2);
         builder.append("\n)$");
