@@ -60,3 +60,5 @@ So, to recap:
 Also note that all "current" curves have first and last points close to each other, as they're supposed to be continuous. Likewise, all "next" curves have first and last points at the corners of their containing squares, as they're supposed to connect to the other copies.
 
 Also also, the same algorithm is used for 3D. Only the rotations and mirrors are different. Probably the algorithm that generates the rotations and mirrors for any dimension are the same in the mathematical definition of a Moore curve. And I think there's a low chance I could achieve the same using Gray code, but I don't think I'll be pursuing that.
+
+[A few words about Maven.](https://gist.github.com/GuiRitter/1834bd024756e08ab422026a7cd24605)
